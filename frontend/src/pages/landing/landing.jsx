@@ -1,13 +1,45 @@
 import { useNavigate } from "react-router-dom";
-import Button from "../components/ui/button";
-import Footer from "../components/ui/footer";
-import Navbar from "../components/ui/navbar";
+import Button from "../../components/ui/button";
+import Footer from "../../components/ui/footer";
+import Navbar from "../../components/ui/navbar";
+import './landing.css';
+import { useEffect, useRef } from "react";
 
 export default function LandingPage() {
   const navigate = useNavigate();
-  function navigateToMain(){
+  const fadeInRef = useRef([]);
+
+  function navigateToMain() {
     navigate("/main");
   }
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    fadeInRef.current.forEach((el) => {
+      if (el) {
+        observer.observe(el);
+      }
+    });
+
+    return () => {
+      fadeInRef.current.forEach((el) => {
+        if (el) {
+          observer.unobserve(el);
+        }
+      });
+    };
+  }, []);
+  
   return (
     <>
       <Navbar />
@@ -34,15 +66,15 @@ export default function LandingPage() {
           </h2>
         </div>
         <div className="flex gap-3">
-          <Button className="" text="Start Generating" onclick={navigateToMain}></Button>
+          <Button className="bg-accent text-white" text="Start Generating" onclick={navigateToMain}></Button>
           <Button
-            className="bg-white text-purple-700 border-2 border-accent"
+            className="bg-white text-accent border-2 border-accent"
             text={"Learn More"}
           ></Button>
         </div>
       </header>
 
-      <div className="flex flex-col justify-center items-center gap-10 mt-20">
+      <div className="flex flex-col justify-center items-center gap-10 mt-20 fade-in" ref={(el) => (fadeInRef.current[0] = el)}>
         <div>
           <h2 className="text-accent text-5xl font-bold">Key Features</h2>
         </div>
@@ -81,7 +113,7 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="bg-purple-100 flex flex-col justify-center gap-10 items-center w-full p-10 py-32 mt-32">
+      <div className="bg-purple-100 flex flex-col justify-center gap-10 items-center w-full p-10 py-32 mt-32 fade-in" ref={(el) => (fadeInRef.current[1] = el)}>
         <div>
           <h2 className="text-accent text-5xl font-bold">How It Works</h2>
         </div>
@@ -123,7 +155,7 @@ export default function LandingPage() {
       </div>
 
 
-      <div className="flex flex-col justify-center items-center gap-10 mt-32">
+      <div className="flex flex-col justify-center items-center gap-10 mt-32 fade-in" ref={(el) => (fadeInRef.current[2] = el)}>
         <div>
           <h2 className="text-accent text-5xl font-bold">Simple Pricing</h2>
         </div>

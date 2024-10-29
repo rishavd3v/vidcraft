@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import LandingPage from './pages/landing'
-import Main from './pages/main'
+import LandingPage from './pages/landing/landing'
+import Main from './pages/main/generate'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 function App() {
