@@ -2,11 +2,29 @@ import { useState } from "react";
 
 export default function Input() {
   const [userInput, setUserInput] = useState("");
+  
   function handleUserInput(e) {
     setUserInput(e.target.value);
   }
-  function handleGenerate() {
-    //generate content here
+
+  async function handleGenerate() {
+    try{
+      const res = await fetch('http://localhost:3000/generate',{
+        method:'POST',
+        body:JSON.stringify({
+          title:userInput,
+        }),
+        headers:{
+          "content-type":"application/json"
+        }
+      })
+      const data = await res.json();
+    }
+    catch(err){
+      console.error(err);
+    }
+    
+
   }
   return (
     <div className="flex flex-col gap-2 border border-[#313131] bg-[#141415] p-2 rounded-xl w-full">

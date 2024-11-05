@@ -161,7 +161,7 @@ export default function LandingPage() {
         </div>
 
         <div className="flex gap-8">
-        <div className="flex flex-col bg-purple-100 p-6 gap-6 rounded-lg w-96">
+        <div className="flex flex-col justify-between bg-purple-100 p-6 gap-6 rounded-lg w-96">
           <div className="flex flex-col gap-2">
             <h2 className="text-accent text-2xl font-bold">Basic</h2>
             <h2 className="text-4xl font-bold">$9.99<span className="text-base font-normal text-gray-600">/month</span></h2>
@@ -176,41 +176,49 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-          <Button className={"w-full"} text={"Choose Plan"}/>
+          <Button className={"w-full text-white"} text={"Choose Plan"}/>
         </div>
-        <div className="flex flex-col bg-purple-100 p-6 gap-6 rounded-lg w-96 border-2 border-accent">
+        <div className="flex flex-col justify-between bg-purple-100 p-6 gap-6 rounded-lg w-96 border-2 border-accent">
           <div className="flex flex-col gap-2">
             <h2 className="text-accent text-2xl font-bold">Pro</h2>
             <h2 className="text-4xl font-bold">$9.99<span className="text-base font-normal text-gray-600">/month</span></h2>
             <div className="flex flex-col">
               <div className="flex items-center gap-1">
                 <i class="bi bi-check2 text-xl"></i>
-                <p className="text-gray-600 text-lg">100 generations per month</p>
+                <p className="text-gray-600 text-lg">Unlimited generations</p>
               </div>
               <div className="flex items-center gap-1">
                 <i class="bi bi-check2 text-xl"></i>
-                <p className="text-gray-600 text-lg">Basic customization</p>
+                <p className="text-gray-600 text-lg">Advanced customization</p>
+              </div>
+              <div className="flex items-center gap-1">
+                <i class="bi bi-check2 text-xl"></i>
+                <p className="text-gray-600 text-lg">Priority Support</p>
               </div>
             </div>
           </div>
-          <Button className={"w-full"} text={"Choose Plan"}/>
+          <Button className={"w-full text-white"} text={"Choose Plan"}/>
         </div>
-        <div className="flex flex-col bg-purple-100 p-6 gap-6 rounded-lg w-96">
+        <div className="flex flex-col justify-between bg-purple-100 p-6 gap-6 rounded-lg w-96">
           <div className="flex flex-col gap-2">
-            <h2 className="text-accent text-2xl font-bold">Enterprose</h2>
+            <h2 className="text-accent text-2xl font-bold">Enterprise</h2>
             <h2 className="text-4xl font-bold">$9.99<span className="text-base font-normal text-gray-600">/month</span></h2>
             <div className="flex flex-col">
               <div className="flex items-center gap-1">
                 <i class="bi bi-check2 text-xl"></i>
-                <p className="text-gray-600 text-lg">100 generations per month</p>
+                <p className="text-gray-600 text-lg">Custom solutions</p>
               </div>
               <div className="flex items-center gap-1">
                 <i class="bi bi-check2 text-xl"></i>
-                <p className="text-gray-600 text-lg">Basic customization</p>
+                <p className="text-gray-600 text-base">Dedicated account manager</p>
+              </div>
+              <div className="flex items-center gap-1">
+                <i class="bi bi-check2 text-xl"></i>
+                <p className="text-gray-600 text-lg">24/7 premium support</p>
               </div>
             </div>
           </div>
-          <Button className={"w-full"} text={"Choose Plan"}/>
+          <Button className={"w-full text-white"} text={"Choose Plan"}/>
         </div>
         </div>
         

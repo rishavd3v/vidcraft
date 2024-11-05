@@ -10,7 +10,8 @@ export default {
         'screen-90': '90vh',
       },
       colors: {
-        accent: '#903FF2', // Add your custom color here
+        accent: '#903FF2',
+        sec: '#7833CC',
       },
     },
   },
