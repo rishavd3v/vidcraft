@@ -8,6 +8,7 @@ export default {
     extend: {
       height: {
         'screen-90': '90vh',
+        'screen-80': '80vh',
       },
       colors: {
         accent: '#903FF2',

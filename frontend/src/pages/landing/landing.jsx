@@ -224,7 +224,7 @@ export default function LandingPage() {
         
       </div>
 
-      <Footer/>
+      <Footer className={"mt-20"}/>
 
     </>
   );

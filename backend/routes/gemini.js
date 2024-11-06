@@ -4,8 +4,8 @@ const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 async function generate(title){
-  const result = await model.generateContent(title);
-  return result.response.text();
+  const result = await model.generateContentStream(title);
+  return result.stream;
 }
 
 module.exports = generate;

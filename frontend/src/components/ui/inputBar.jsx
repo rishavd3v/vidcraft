@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState} from "react";
 
-export default function Input() {
+export default function Input({setModelOutput}) {
   const [userInput, setUserInput] = useState("");
-  
   function handleUserInput(e) {
     setUserInput(e.target.value);
   }
@@ -18,7 +17,8 @@ export default function Input() {
           "content-type":"application/json"
         }
       })
-      const data = await res.json();
+      const data = await res.text();
+      setModelOutput(data);
     }
     catch(err){
       console.error(err);
@@ -54,7 +54,7 @@ export default function Input() {
         </div>
         <div>
           <button onClick={handleGenerate} disabled={!userInput}>
-            <i class={"bi bi-arrow-up-square-fill text-3xl"}></i>
+            <i className={"bi bi-arrow-up-square-fill text-3xl"}></i>
           </button>
         </div>
       </div>
