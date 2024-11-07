@@ -42,10 +42,11 @@ export default function LandingPage() {
   
   return (
     <div className="landing">
+      <div className="z-10 h-min">
       <Navbar />
-
+      </div>
       <div>
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10"></div>
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
           <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
@@ -54,7 +55,7 @@ export default function LandingPage() {
       </div>
 
       <header className="pb-20 flex flex-col text-center items-center justify-center gap-6 h-screen-90 px-72">
-        <div className="z-10">
+        <div>
           <h2 className="text-accent text-6xl font-extrabold">
             Generate Content in Seconds
           </h2>

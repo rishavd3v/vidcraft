@@ -8,7 +8,7 @@ export default function Generate(){
 
     return (
         <>
-            <div className="generate min-h-screen max-w-screen overflow-hidden">
+            <div className="generate min-h-screen max-w-screen overflow-hidden bg-[#0F0F10] pb-8">
                 <div className="fixed inset-0 overflow-hidden z-10 h-screen bg-[##0F0F10]">
                     <div className="glow-1 left-96 w-96 h-96 bg-purple-700 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob"></div>
                     <div className="glow-2 w-64 h-64 bg-orange-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob"></div>
