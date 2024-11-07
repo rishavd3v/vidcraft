@@ -17,8 +17,11 @@ export default function Input({setModelOutput}) {
           "content-type":"application/json"
         }
       })
-      const data = await res.text();
-      setModelOutput(data);
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await res.json();
+      setModelOutput(data.output);
     }
     catch(err){
       console.error(err);

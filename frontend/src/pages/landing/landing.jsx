@@ -41,11 +41,11 @@ export default function LandingPage() {
   }, []);
   
   return (
-    <>
+    <div className="landing">
       <Navbar />
 
       <div>
-        <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-full h-full bg-grid-pattern opacity-10"></div>
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
           <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
@@ -74,7 +74,7 @@ export default function LandingPage() {
         </div>
       </header>
 
-      <div className="flex flex-col justify-center items-center gap-10 mt-20 fade-in" ref={(el) => (fadeInRef.current[0] = el)}>
+      <div id="features" className="flex flex-col justify-center items-center gap-10 mt-20 fade-in" ref={(el) => (fadeInRef.current[0] = el)}>
         <div>
           <h2 className="text-accent text-5xl font-bold">Key Features</h2>
         </div>
@@ -113,7 +113,7 @@ export default function LandingPage() {
         </div>
       </div>
 
-      <div className="bg-purple-100 flex flex-col justify-center gap-10 items-center w-full p-10 py-32 mt-32 fade-in" ref={(el) => (fadeInRef.current[1] = el)}>
+      <div id="how-it-works" className="bg-purple-100 flex flex-col justify-center gap-10 items-center w-full p-10 py-32 mt-32 fade-in" ref={(el) => (fadeInRef.current[1] = el)}>
         <div>
           <h2 className="text-accent text-5xl font-bold">How It Works</h2>
         </div>
@@ -155,7 +155,7 @@ export default function LandingPage() {
       </div>
 
 
-      <div className="flex flex-col justify-center items-center gap-10 mt-32 fade-in" ref={(el) => (fadeInRef.current[2] = el)}>
+      <div id="pricing" className="flex flex-col justify-center items-center gap-10 mt-32 fade-in" ref={(el) => (fadeInRef.current[2] = el)}>
         <div>
           <h2 className="text-accent text-5xl font-bold">Simple Pricing</h2>
         </div>
@@ -226,6 +226,6 @@ export default function LandingPage() {
 
       <Footer className={"mt-20"}/>
 
-    </>
+    </div>
   );
 }
