@@ -1,11 +1,12 @@
-import { useState,useRef } from "react";
+import { useState,useRef, useEffect } from "react";
 import './main.css';
 import Input from "../../components/ui/inputBar";
 import Container from "../../components/ui/container";
 
 export default function Generate(){
     const [modelOutput,setModelOutput] = useState({});
-
+    const [imageOutput,setImageOutput] = useState("");
+    
     return (
         <>
             <div className="generate min-h-screen max-w-screen overflow-hidden bg-[#0F0F10] pb-8">
@@ -18,13 +19,13 @@ export default function Generate(){
                         <div>
                             <h3 className="text-5xl font-bold">What do you want to create?</h3>
                         </div>
-                        <Input setModelOutput={setModelOutput}/>            
+                        <Input setModelOutput={setModelOutput} setImageOutput={setImageOutput}/>            
                     </div>
                 </div>
                 
                 {Object.keys(modelOutput).length > 0 && (
                     <div className="w-screen flex justify-center text-white">
-                        <Container className={"w-1/2"} modelOutput={modelOutput}/>
+                        <Container className={"w-1/2"} modelOutput={modelOutput} imageOutput={imageOutput}/>
                     </div>
                 )}
             </div>

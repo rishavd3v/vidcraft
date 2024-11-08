@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react"
 
-export default function Container({className,modelOutput}){
+export default function Container({className,modelOutput,imageOutput}) {
     const [content,setContent] = useState({});
-    useEffect(()=>{
+    const [image,setImage] = useState("");
+
+    useEffect(() => {
         setContent(modelOutput);
-    },[modelOutput])
+    }, [modelOutput]);
+
+    useEffect(() => {
+        setImage(imageOutput);
+    }, [imageOutput]);
+
 
     return (
         <>
@@ -12,6 +19,20 @@ export default function Container({className,modelOutput}){
                 <div>
                     <h2 className="text-2xl font-bold text-center">Generated Content</h2>
                     <div className="w-full h-1 rounded-lg bg-accent mt-4"></div>
+                </div>
+                <div className="">
+                    <h3 className="text-base font-bold mb-4">Thumbnail</h3>
+                    <div className="flex flex-col justify-center items-center rounded-lg bg-[#434346] p-2">
+                    {image ? (
+                        <img 
+                            src={`${image}`}
+                            alt="Generated Thumbnail"
+                            style={{ width: "100%", maxWidth:"300px", objectFit: "cover" }}
+                        />
+                        ) : (
+                        <p>Error generating image, Try  after some time!</p>
+                    )}
+                    </div>
                 </div>
                 <div className="flex flex-col gap-2">
                     <h3 className="text-base font-bold">Title</h3>
