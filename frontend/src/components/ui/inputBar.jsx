@@ -1,19 +1,25 @@
 import { useState} from "react";
+import LoadingSpinner from "./spinner";
+const url = import.meta.env.VITE_BACKEND_URL;
 
-export default function Input({setModelOutput, setImageOutput}) {
+export default function Input({setModelOutput, setImageOutput, setTypeMain}) {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("youtube");
-  
+  const [loading, setLoading] = useState(false);
+
   function handleTitle(e) {
     setTitle(e.target.value);
   }
   function handleType(e) {
     setType(e.target.value);
   }
-
+  
   async function handleGenerate() {
     try{
-      const res = await fetch('http://localhost:3000/generate',{
+      setLoading(true);
+      setTypeMain(type);
+      
+      const res = await fetch(`${url}/generate`,{
         method:'POST',
         body:JSON.stringify({
           title:title,
@@ -28,9 +34,10 @@ export default function Input({setModelOutput, setImageOutput}) {
       }
       const data = await res.json();
       setModelOutput(data.output);
+      setLoading(false);
 
       if(type=="youtube"){
-        const imageRes = await fetch('http://localhost:3000/image',{
+        const imageRes = await fetch(`https://localhost:3000/image`,{
           method:'POST',
           body:JSON.stringify({
             title:title,
@@ -41,6 +48,7 @@ export default function Input({setModelOutput, setImageOutput}) {
         })
         if (!imageRes.ok) {
           console.log("Image not recieved");
+          setImageOutput("error");
           throw new Error('Image not recieved');
         }
         const imageUrl = await imageRes.text();
@@ -81,9 +89,12 @@ export default function Input({setModelOutput, setImageOutput}) {
           </div>
         </div>
         <div>
-          <button onClick={handleGenerate} disabled={!title}>
+          {!loading ? (
+            <button onClick={handleGenerate} disabled={!title}>
             <i className={`bi bi-arrow-up-square-fill text-3xl ${title?"":"text-[#555557]"}`}></i>
-          </button>
+          </button>):(
+            <LoadingSpinner size="medium" color="accent" />
+          )}
         </div>
       </div>
     </div>

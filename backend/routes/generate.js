@@ -10,6 +10,7 @@ router.post('/generate', async (req, res) => {
     return res.status(400).json({error:"Title is missing"});
   }
   try{
+    console.log("Generating content...");
     const output = await generate(title,type);
     console.log("Content fetched successfully");
     res.json({output:output});
@@ -23,12 +24,13 @@ router.post('/generate', async (req, res) => {
 router.post('/image',async (req,res)=>{
   const title = req.body.title;
   try{
+    console.log("Generating image...");
     const imageUrl = await thumbnail(title);
     console.log("Image fetched successfully");
     res.send(imageUrl);
   }
   catch(err){
-    console.log("Error in fetching image-2",err);
+    console.log("Error in fetching image",err);
     res.status(500).json({error:err});
   }
 })

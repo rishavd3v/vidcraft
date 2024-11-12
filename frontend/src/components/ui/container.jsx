@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 
-export default function Container({className,modelOutput,imageOutput}) {
+export default function Container({className,modelOutput,imageOutput,type}) {
     const [content,setContent] = useState({});
     const [image,setImage] = useState("");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setContent(modelOutput);
@@ -10,6 +11,10 @@ export default function Container({className,modelOutput,imageOutput}) {
 
     useEffect(() => {
         setImage(imageOutput);
+        if(imageOutput != ""){
+            setLoading(false);
+        }
+        
     }, [imageOutput]);
 
 
@@ -20,20 +25,27 @@ export default function Container({className,modelOutput,imageOutput}) {
                     <h2 className="text-2xl font-bold text-center">Generated Content</h2>
                     <div className="w-full h-1 rounded-lg bg-accent mt-4"></div>
                 </div>
-                <div className="">
-                    <h3 className="text-base font-bold mb-4">Thumbnail</h3>
-                    <div className="flex flex-col justify-center items-center rounded-lg bg-[#434346] p-2">
-                    {image ? (
-                        <img 
-                            src={`${image}`}
-                            alt="Generated Thumbnail"
-                            style={{ width: "100%", maxWidth:"300px", objectFit: "cover" }}
-                        />
-                        ) : (
-                        <p>Error generating image, Try  after some time!</p>
-                    )}
+
+                {type=="youtube" && (
+                    <div className="">
+                        <h3 className="text-base font-bold mb-4">Thumbnail</h3>
+                        <div className="flex flex-col justify-center items-center rounded-lg bg-[#434346] p-2">
+                        {loading ? (
+                            <p>Generating Image...It may take a while</p>
+                            ) : (
+                            image === "error" ? (
+                                <p>Error generating image, Try after some time!</p>
+                            ) : (
+                                <img 
+                                src={image}
+                                alt="Generated Thumbnail"
+                                style={{ width: "100%", maxWidth: "300px", objectFit: "cover" }}
+                                />
+                            )
+                        )}
                     </div>
                 </div>
+                )}
                 <div className="flex flex-col gap-2">
                     <h3 className="text-base font-bold">Title</h3>
                     <p>{content.title}</p>
