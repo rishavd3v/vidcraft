@@ -7,7 +7,7 @@ export default function navbar(){
             section.scrollIntoView({ behavior: 'smooth' });
           }
         };
-      };
+        };
     return (
         <>
             <div className="flex items-center justify-between p-6">

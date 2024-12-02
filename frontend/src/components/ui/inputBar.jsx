@@ -13,13 +13,17 @@ export default function Input({setModelOutput, setImageOutput, setTypeMain}) {
   function handleType(e) {
     setType(e.target.value);
   }
-  
+  function handleKeyPress(e){
+    if(e.key=='Enter'){
+      handleGenerate();
+    }
+  }
   async function handleGenerate() {
     try{
       setLoading(true);
       setTypeMain(type);
-      
-      const res = await fetch(`${url}/generate`,{
+
+      const res = await fetch(`http://localhost:3000/generate`,{
         method:'POST',
         body:JSON.stringify({
           title:title,
@@ -37,7 +41,7 @@ export default function Input({setModelOutput, setImageOutput, setTypeMain}) {
       setLoading(false);
 
       if(type=="youtube"){
-        const imageRes = await fetch(`https://localhost:3000/image`,{
+        const imageRes = await fetch(`http://localhost:3000/image`,{
           method:'POST',
           body:JSON.stringify({
             title:title,
@@ -68,6 +72,7 @@ export default function Input({setModelOutput, setImageOutput, setTypeMain}) {
         type="text"
         placeholder="Enter your main topic or theme"
         onChange={handleTitle}
+        onKeyDown={handleKeyPress}
       />
       <div className="flex items-center justify-between">
         <div className="flex gap-4 items-center justify-center">

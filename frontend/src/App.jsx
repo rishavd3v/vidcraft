@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import LandingPage from './pages/landing/landing'
 import Main from './pages/main/main'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 function App() {
-
+  useEffect(()=>{
+    document.title = "VIDCRAFT.AI"
+  })
   return (
     <>
       <Router>
