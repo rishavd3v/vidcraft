@@ -1,11 +1,14 @@
+### The application is live at https://vidcraftai.vercel.app/.
+Note: Image generation functionality is unavailable on the deployed version due to Vercel's limitations.
+
 ### To run locally
-1. Clone the Repository
+**1. Clone the Repository**
 ```
   git clone https://github.com/rishavd3v/vidcraft.git
   cd vidcraft
 ```
-2. Install Packages
-- Navigate to `/frontend`
+**2. Install Packages**  
+  - Navigate to `/frontend`
 ```
 cd frontend
 npm install
@@ -15,13 +18,14 @@ npm install
 cd ../backend
 npm install
 ```
-3. Set up Environment variables
+
+**3. Set up Environment variables**
 - Create a .env file in /backend. Add the following in .env
 ```
 GOOGLE_API_KEY = [Gemini API key]
 HF_API_KEY = [Huggung face API key (token)]
 ```
-4. Run application
+**4. Run application**
 - Start the frontend server
 ```
 cd ../frontend
