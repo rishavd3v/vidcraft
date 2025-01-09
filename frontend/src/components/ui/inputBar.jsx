@@ -23,7 +23,7 @@ export default function Input({setModelOutput, setImageOutput, setTypeMain}) {
       setLoading(true);
       setTypeMain(type);
 
-      const res = await fetch(`http://localhost:3000/generate`,{
+      const res = await fetch(`${url}/generate`,{
         method:'POST',
         body:JSON.stringify({
           title:title,
@@ -41,7 +41,7 @@ export default function Input({setModelOutput, setImageOutput, setTypeMain}) {
       setLoading(false);
 
       if(type=="youtube"){
-        const imageRes = await fetch(`http://localhost:3000/image`,{
+        const imageRes = await fetch(`${url}/image`,{
           method:'POST',
           body:JSON.stringify({
             title:title,
