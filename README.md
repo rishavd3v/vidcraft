@@ -1,6 +1,11 @@
 ### The application is live at https://vidcraftai.vercel.app/.
 Note: Image generation functionality is unavailable on the deployed version due to Vercel's limitations.
 
+  
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/900c9691-57ab-4800-a9a3-ec4b1e5dd42f" width="700" height="auto">
+</p>
+
 ### To run locally
 **1. Clone the Repository**
 ```
